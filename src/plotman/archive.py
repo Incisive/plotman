@@ -116,16 +116,8 @@ def archive(dir_cfg, all_jobs):
     #
     # Pick first archive dir with sufficient space
     #
-    archdir_freebytes = get_archdir_freebytes(dir_cfg.archive)
-    if not archdir_freebytes:
-        return(False, 'No free archive dirs found.')
-    
-    archdir = ''
-    available = [(d, space) for (d, space) in archdir_freebytes.items() if 
-                 space > 1.2 * plot_util.get_k32_plotsize()]
-    if len(available) > 0:
-        index = min(dir_cfg.archive.index, len(available) - 1)
-        (archdir, freespace) = sorted(available)[index]
+    archdir = '/volume1/chia_plots'
+   
 
     if not archdir:
         return(False, 'No archive directories found with enough free space')
