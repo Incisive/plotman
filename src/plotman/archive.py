@@ -110,19 +110,7 @@ def archive(dir_cfg, all_jobs):
     if not chosen_plot:
         return (False, 'No plots found')
 
-    # TODO: sanity check that archive machine is available
-    # TODO: filter drives mounted RO
-
-    #
-    # Pick first archive dir with sufficient space
-    #
     archdir = '/volume1/chia_plots'
-   
-
-    if not archdir:
-        return(False, 'No archive directories found with enough free space')
-    
-    msg = 'Found %s with ~%d GB free' % (archdir, freespace / plot_util.GB)
 
     bwlimit = dir_cfg.archive.rsyncd_bwlimit
     throttle_arg = ('--bwlimit=%d' % bwlimit) if bwlimit else ''
