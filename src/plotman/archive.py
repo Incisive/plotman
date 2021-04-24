@@ -66,7 +66,7 @@ def rsync_dest(arch_cfg, arch_dir):
     rsync_path = arch_dir.replace(arch_cfg.rsyncd_path, arch_cfg.rsyncd_module)
     if rsync_path.startswith('/'):
         rsync_path = rsync_path[1:]  # Avoid dup slashes.  TODO use path join?
-    rsync_url = '%s@%s/volume1/chia_plots' % (
+    rsync_url = '%s@%s:/volume1/chia_plots' % (
             arch_cfg.rsyncd_user, arch_cfg.rsyncd_host)
     return rsync_url
 
